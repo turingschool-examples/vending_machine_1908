@@ -1,0 +1,3 @@
+class Snack < ApplicationRecord
+
+end 

@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'When I visit a vending machine show page', type: :feature do
   before(:each) do
-    @brothers_machine = Machine.create(location: 'Brothers')
-    @turing_machine = Machine.create(location: 'Turing')
+    @foxy = Owner.create(name: 'Foxy')
 
-    @jerky = @machine_1.snacks.create(name: 'Jerky', price: 2.50)
-    @pop_tart = @machine_1.snacks.create(name: 'Strawberry PopTart', price: 1.50)
+    @brothers_machine = @foxy.machines.create(location: 'Brothers')
+    @turing_machine = @foxy.machines.create(location: 'Turing')
+    # binding.pry
+
+    @jerky = @brothers_machine.snacks.create(name: 'Jerky', price: 2.50)
+    @pop_tart = @brothers_machine.snacks.create(name: 'Strawberry PopTart', price: 1.50)
   end
 
   it 'it shows all snacks associated with a vending machine and its prices' do
