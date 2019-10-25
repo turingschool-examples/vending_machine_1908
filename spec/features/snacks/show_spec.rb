@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'On the Snack Show Page' do
   describe 'As a visitor' do
-    it 'I see lots of information about that snack' do
+    xit 'I see lots of information about that snack' do
       sam = Owner.create(name: "Sam's Snacks")
       machine = sam.machines.create(location: "Turing Basement")
       machine2 = sam.machines.create(location: "Train Station")

@@ -8,11 +8,12 @@ describe Snack, type: :model do
   end
 
   describe "relationships" do
-    it {should belong_to :machine}
+    it {should have_many :machine_snacks}
+    it {should have_many( :machines ).through(:machine_snacks)}
   end
 
   describe 'methods' do
-    it 'returns a list of all machine locations for a snack' do
+    xit 'returns a list of all machine locations for a snack' do
       sam = Owner.create(name: "Sam's Snacks")
       machine = sam.machines.create(location: "Turing Basement")
       machine2 = sam.machines.create(location: "Train Station")
