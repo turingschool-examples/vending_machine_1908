@@ -8,3 +8,5 @@
     <p>Price $<%= snack.price %></p>
   </section>
 <% end %>
+
+<h2>Average Price: <%= number_to_currency(@machine.snacks.average_price) %></h2> 
