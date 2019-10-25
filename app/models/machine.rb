@@ -5,7 +5,7 @@ class Machine < ApplicationRecord
   has_many :snacks
 
 
-  def average_price
+  def average_snack_price
     snacks.average(:price)
   end
 
@@ -14,5 +14,5 @@ class Machine < ApplicationRecord
     snacks.length
   end
 
-  
+
 end
