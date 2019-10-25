@@ -9,4 +9,17 @@ RSpec.describe Machine, type: :model do
   describe 'relationships' do
     it {should have_many :snacks}
   end
+
+  describe 'methods' do
+    it 'calculates the average price of one machines snacks' do
+      sam = Owner.create(name: "Sam's Snacks")
+      machine = sam.machines.create(location: "Turing Basement")
+      snack1 = machine.snacks.create(name: 'Twix', price: 1.50)
+      snack2 = machine.snacks.create(name: 'Chips', price: 2.0)
+      snack3 = machine.snacks.create(name: 'Doughnuts', price: 2.5)
+
+      average_price = machine.average_snack_price
+      expect(average_price).to eq(2.0)
+    end
+  end
 end
