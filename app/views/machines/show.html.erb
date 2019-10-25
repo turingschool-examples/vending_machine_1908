@@ -4,7 +4,6 @@
 
 <% @machine.snacks.each do |snack| %>
   <article id="snack-<%= snack.id %>">
-    <h4><%= snack.name %></h4>
-    <p>Price: <%= number_to_currency(snack.price) %></p>
+    <p><%= snack.name %>: <%= number_to_currency(snack.price) %></p>
   </article>
 <% end %>
