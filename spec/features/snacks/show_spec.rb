@@ -30,11 +30,23 @@ describe 'when a user visits a snack show page' do
 
     expect(page). to have_content('Pop Rocks')
 
+    expect(page).to_not have_css("#locations-#{mikes.id}")
+
     within "#locations-#{dons.id}" do
       expect(page).to have_content("Wallaby Way")
       expect(page).to have_content("Kinds of Snacks: 5")
       expect(page).to have_content("Average Price of Snacks: $1.60")
     end
+
+    within "#locations-#{sams.id}" do
+      expect(page).to have_content("Turing Basement")
+      expect(page).to have_content("Kinds of Snacks: 6")
+      expect(page).to have_content("Average Price of Snacks: $1.63")
+    end
+
+    visit snack_path(snickers)
+      expect(page).to_not have_css("#locations-#{mikes.id}")
+      expect(page).to_not have_css("#locations-#{dons.id}")
 
     within "#locations-#{sams.id}" do
       expect(page).to have_content("Turing Basement")
