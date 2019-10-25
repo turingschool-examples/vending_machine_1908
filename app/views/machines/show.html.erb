@@ -3,3 +3,5 @@
 <% @machine.snacks.each do |snack| %>
   <p><%= snack.name %>: <%= number_to_currency(snack.price) %></p>
 <% end %>
+
+<p>Average Price: <%= number_to_currency(@machine.avg_price) %></p>
