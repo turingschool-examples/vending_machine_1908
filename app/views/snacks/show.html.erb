@@ -3,10 +3,11 @@
 
 <h3>Locations</h3>
 <%= @snack.machines.each do |machine| %>
-  <section id="machine-<%= machine.id %>">  
+  <section id="machine-<%= machine.id %>">
     <h5><%= machine.location %></h5>
     <ul>
       <li>Machine Average Price: $<%= machine.average_price %></li>
+      <li>Items in Machine: <%= machine.count_snacks %></li>
     </ul>
 </section>
 <% end %>

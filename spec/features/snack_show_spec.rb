@@ -41,8 +41,16 @@ RSpec.describe 'As a visitor' do
       end
     end
 
-    xit "Under each location I see the count of items in that machine" do
+    it "Under each location I see the count of items in that machine" do
+      visit "/snacks/#{@snack_1.id}"
 
+      within "#machine-#{@machine_1.id}" do
+        expect(page).to have_content("Items in Machine: 2")
+      end
+
+      within "#machine-#{@machine_2.id}" do
+        expect(page).to have_content("Items in Machine: 2")
+      end
     end
   end
 end
