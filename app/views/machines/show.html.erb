@@ -1,1 +1,10 @@
 <h1><%= @machine.location %> Vending Machine</h1>
+
+<h2>Snacks</h2>
+
+<% @machine.snacks.each do |snack| %>
+  <section id='snacks-<%= snack.id %>'>
+    <p>Name: <%= snack.name %></p>
+    <p>Price $<%= snack.price %></p>
+  </section>
+<% end %>
