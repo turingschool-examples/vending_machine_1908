@@ -18,12 +18,15 @@ RSpec.describe 'As a visitor' do
     it "I see the name and price of the item" do
       visit "/snacks/#{@snack_1.id}"
 
-      expect(page).to have_content("Turing Basement")
-      expect(page).to have_content("Union Station")
+      expect(page).to have_content("Hot Cheetos")
+      expect(page).to have_content("$1.50")
     end
 
-    xit "I see the locations of each machine containing that snack" do
+    it "I see the locations of each machine containing that snack" do
+      visit "/snacks/#{@snack_1.id}"
 
+      expect(page).to have_content("Turing Basement")
+      expect(page).to have_content("Union Station")
     end
 
     xit "Under each location I see the average price of the machine" do
