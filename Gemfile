@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'launchy'
   gem 'simplecov', require: false, group: :test
+  gem 'awesome_print'
 end
 
 group :development do
