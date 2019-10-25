@@ -19,10 +19,12 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
     visit machine_path(dons)
 
     expect(page).to have_content("Don's Mixed Drinks Vending Machine")
-    expect(page).to have_content("Cheetos: $3")
+    expect(page).to have_content("Cheetos: $4")
     expect(page).to have_content("BBQ Potato Chips: $5")
     expect(page).to have_content("Healthy Wood Chips: $15")
-    expect(page).to have_content("Average Price: $8.0")
 
+    within "#avg_price" do
+      expect(page).to have_content("Average Price: $8.0")
+    end
   end
 end
