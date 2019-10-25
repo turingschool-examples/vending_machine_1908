@@ -1,9 +1,5 @@
 require 'rails_helper'
 
-# As a user
-# When I visit a vending machine show page
-# I see the name of all of the snacks associated with that vending machine along with their price
-
 RSpec.describe 'vending machine show page', type: :feature do
 
   before :each do
@@ -38,13 +34,23 @@ RSpec.describe 'vending machine show page', type: :feature do
     within "#snack-#{@cheetos.id}" do
       expect(page).to have_content('Flaming Hot Cheetos: $2.00')
     end
-    save_and_open_page
   end
 
   it 'cannot see the names and prices of snacks in other machines' do
     visit machine_path(@dons)
 
     expect(page).to_not have_css("#snack-#{@snickers.id}")
+  end
+
+  # As a visitor
+  # When I visit a vending machine show page
+  # I also see an average price for all of the snacks in that machine
+
+  it 'can see the average price for all of the snacks in the machine' do
+    visit machine_path(@dons)
+
+    expect(page).to have_content('Average Price: $2.33')
+    save_and_open_page
   end
 
 end
