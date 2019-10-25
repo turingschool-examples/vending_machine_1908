@@ -42,15 +42,10 @@ RSpec.describe 'vending machine show page', type: :feature do
     expect(page).to_not have_css("#snack-#{@snickers.id}")
   end
 
-  # As a visitor
-  # When I visit a vending machine show page
-  # I also see an average price for all of the snacks in that machine
-
   it 'can see the average price for all of the snacks in the machine' do
     visit machine_path(@dons)
 
     expect(page).to have_content('Average Price: $2.33')
-    save_and_open_page
   end
 
 end
