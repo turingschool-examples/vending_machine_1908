@@ -19,4 +19,16 @@ RSpec.describe Machine, type: :model do
       expect(dons.average_price).to eq(2)
     end
   end
+
+  describe 'instance methods' do
+    it "can calculate count of snacks in individual machine" do
+      owner = Owner.create(name: "Sam's Snacks")
+      dons  = owner.machines.create(location: "Don's")
+      hot_cheetos = dons.snacks.create(name: "Flaming Hot Cheetos", price: 2.25)
+      twix = dons.snacks.create(name: "Twix", price: 1.75)
+      pringles = dons.snacks.create(name: "Pringles", price: 3.35)
+
+      expect(dons.count_of_snacks).to eq(3)
+    end
+  end
 end
