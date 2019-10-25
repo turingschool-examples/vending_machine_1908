@@ -9,5 +9,9 @@ RSpec.describe Snack, type: :model do
     it { should validate_numericality_of :price }
   end
 
+  describe 'relationships' do
+    it { should have_many(:machines).through(:machine_snacks) }
+  end
+
 
 end
