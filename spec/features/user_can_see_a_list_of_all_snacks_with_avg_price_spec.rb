@@ -17,5 +17,13 @@ RSpec.describe "As a User" do
       expect(page).to have_content(@delight.name)
       expect(page).to have_content(@chocoblaster.name)
     end
+
+    it "can see an average price of all the machines snacks" do
+
+      visit machine_path(@dons)
+
+      expect(page).to have_content('Average Price: $3.0')
+
+    end
   end
 end
