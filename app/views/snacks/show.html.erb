@@ -1,0 +1,19 @@
+<section id='item-info'>
+  <%= render partial: 'partials/snack_info', 
+    locals: { 
+      name: @snack.name, 
+      price: @snack.price 
+      } 
+  %>
+</section>
+
+<section>
+  <p>Locations:</p>
+  <ul>
+    <% @snack.machines.each do |machine| %>
+      <li id='machine-<%= machine.id %>'>
+        <%= "#{machine.location} (#{machine.snacks.total_snacks} kinds of snacks, average price of #{number_to_currency(machine.snacks.average_price)})" %>
+      </li>
+    <% end %>
+  </ul>
+</section>
