@@ -13,13 +13,14 @@ RSpec.describe 'When I visit a vending machine show page', type: :feature do
   end
 
   it 'it shows all snacks associated with a vending machine and its prices' do
-    # visit '/machines'
+    # visit "/machines/#{@brothers_machine.id}"
     visit machine_path(@brothers_machine)
 
     expect(page).to have_content('Jerky')
     expect(page).to have_content(2.50)
     expect(page).to have_content('Strawberry PopTart')
     expect(page).to have_content(1.50)
+    save_and_open_page
   end
 end
 
