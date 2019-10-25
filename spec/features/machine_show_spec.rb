@@ -29,7 +29,7 @@ RSpec.describe 'As a visitor' do
       end
 
       expect(page).to_not have_content("Snickers")
-      
+
 
       visit "/machines/#{@machine_2.id}"
 
@@ -45,8 +45,12 @@ RSpec.describe 'As a visitor' do
       expect(page).to_not have_content("Takis")
     end
 
-    xit "I see the average price of all snacks in the machine" do
+    it "I see the average price of all snacks in the machine" do
+      visit "/machines/#{@machine_1.id}"
+      expect(page).to have_content("Average Price: $1.35")
 
+      visit "/machines/#{@machine_2.id}"
+      expect(page).to have_content("Average Price: $1.25")
     end
   end
 end
