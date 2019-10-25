@@ -3,5 +3,5 @@ class MachineSnack < ApplicationRecord
   belongs_to :snack
 
   validates_presence_of :machine_id,
-                       :snack_id
+                        :snack_id
 end
