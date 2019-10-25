@@ -27,8 +27,14 @@ describe 'As a visitor', type: :feature do
 
     it 'I see a list of locations with vending machines that carry that snack' do
       expect(page).to have_content('Locations:')
-      expect(page).to have_content("Sam's Candy")
-      expect(page).to have_content("Sam's Finest Chocolate")
+
+      within "#location-#{@sams.id}" do
+        expect(page).to have_content("Sam's Candy")
+      end
+
+      within "#location-#{@sams_2.id}" do
+        expect(page).to have_content("Sam's Finest Chocolate")
+      end
     end
 
     it 'I see the average price for snacks in those vending machines' do
