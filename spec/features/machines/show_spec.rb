@@ -28,18 +28,15 @@ RSpec.describe 'vending machine show page', type: :feature do
     visit machine_path(@dons)
 
     within "#snack-#{@burger.id}" do
-      expect(page).to have_content('White Castle Burger')
-      expect(page).to have_content('Price: $3.50')
+      expect(page).to have_content('White Castle Burger: $3.50')
     end
 
     within "#snack-#{@pop_rocks.id}" do
-      expect(page).to have_content('Pop Rocks')
-      expect(page).to have_content('Price: $1.50')
+      expect(page).to have_content('Pop Rocks: $1.50')
     end
 
     within "#snack-#{@cheetos.id}" do
-      expect(page).to have_content('Flaming Hot Cheetos')
-      expect(page).to have_content('Price: $2.00')
+      expect(page).to have_content('Flaming Hot Cheetos: $2.00')
     end
     save_and_open_page
   end
