@@ -4,7 +4,6 @@ class Snack < ApplicationRecord
   has_many :machines, through: :machine_snacks
 
   def locations
-    snack_id = self.id
-    Machine.joins(:snacks).where('snacks.id = ?', snack_id)
+    machines.pluck(:location)
   end
 end

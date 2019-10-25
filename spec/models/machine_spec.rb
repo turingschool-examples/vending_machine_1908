@@ -22,5 +22,15 @@ RSpec.describe Machine, type: :model do
       average_price = machine.average_snack_price
       expect(average_price).to eq(2.0)
     end
+
+    it 'returns count of items in machine' do
+      sam = Owner.create(name: "Sam's Snacks")
+      machine = sam.machines.create(location: "Turing Basement")
+      snack1 = machine.snacks.create(name: 'Twix', price: 1.50)
+      snack2 = machine.snacks.create(name: 'Chips', price: 2.0)
+      snack3 = machine.snacks.create(name: 'Doughnuts', price: 2.5)
+      
+      expect(machine.snack_count).to eq(3)
+    end
   end
 end
