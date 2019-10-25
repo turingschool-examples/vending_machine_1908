@@ -29,8 +29,16 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content("Union Station")
     end
 
-    xit "Under each location I see the average price of the machine" do
+    it "Under each location I see the average price of the machine" do
+      visit "/snacks/#{@snack_1.id}"
 
+      within "#machine-#{@machine_1.id}" do
+        expect(page).to have_content("Machine Average Price: $1.35")
+      end
+
+      within "#machine-#{@machine_2.id}" do
+        expect(page).to have_content("Machine Average Price: $1.25")
+      end
     end
 
     xit "Under each location I see the count of items in that machine" do

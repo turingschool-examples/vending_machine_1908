@@ -3,5 +3,10 @@
 
 <h3>Locations</h3>
 <%= @snack.machines.each do |machine| %>
-  <h5><%= machine.location %></h5>
+  <section id="machine-<%= machine.id %>">  
+    <h5><%= machine.location %></h5>
+    <ul>
+      <li>Machine Average Price: $<%= machine.average_price %></li>
+    </ul>
+</section>
 <% end %>
