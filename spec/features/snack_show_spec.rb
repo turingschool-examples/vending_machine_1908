@@ -20,7 +20,7 @@ RSpec.describe 'When a user visits a Snacks show page', type: :feature do
     visit snack_path(cheetos.id)
 
     expect(page).to have_content("Cheetos")
-    expect(page).to have_content("Price: #{cheetos.price}")
+    expect(page).to have_content("Price: $#{cheetos.price}")
     expect(page).to have_content("Locations")
     expect(page).to have_content("Don's Mixed Drinks")
     expect(page).to have_content("3 kinds of snacks, average price of $8.0")
